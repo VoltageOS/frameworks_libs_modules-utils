@@ -34,9 +34,27 @@ import java.lang.annotation.Target;
 @Target({TYPE,FIELD,METHOD,CONSTRUCTOR})
 public @interface RequiresFeature {
     /**
-     * The name of the device feature that is required.
+     * The name of the device feature that is required, if precisely one feature
+     * is required. If more than one feature is required, specify either
+     * {@link #allOf()} or {@link #anyOf()} instead.
+     * <p>
+     * If specified, {@link #anyOf()} and {@link #allOf()} must both be null.
      */
-    String value();
+    String value() default "";
+
+    /**
+     * Specifies a list of feature names that are all required.
+     * <p>
+     * If specified, {@link #anyOf()} and {@link #value()} must both be null.
+     */
+    String[] allOf() default {};
+
+    /**
+     * Specifies a list of permission names where at least one is required
+     * <p>
+     * If specified, {@link #allOf()} and {@link #value()} must both be null.
+     */
+    String[] anyOf() default {};
 
     /**
      * Defines the name of the method that should be called to check whether the feature is
