@@ -24,10 +24,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * THIS ANNOTATION IS EXPERIMENTAL. REACH OUT TO g/ravenwood BEFORE USING IT, OR YOU HAVE ANY
- * QUESTIONS ABOUT IT.
- *
- * TODO: Javadoc
+ * Denotes that the annotated method is supported on Ravenwood, and the implementation
+ * is kept as-is.
+ * <p>
+ * Implementation included in the annotated method will not be processed and
+ * will be kept as-is on Ravenwood, just like it does on a real device.
  *
  * @hide
  */

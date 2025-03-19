@@ -22,10 +22,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * THIS ANNOTATION IS EXPERIMENTAL. REACH OUT TO g/ravenwood BEFORE USING IT, OR YOU HAVE ANY
- * QUESTIONS ABOUT IT.
- *
- * TODO: Javadoc
+ * Denotes that the annotated method is unsupported on Ravenwood, and calling it will be a no-op.
+ * <p>
+ * Implementation included in the annotated method will be removed on Ravenwood, making it
+ * effectively a no-op. If the method returns a value, the value that is returned will be the
+ * "default" value for the type, meaning 0 for primitives types, and null for reference types.
  *
  * @hide
  */
@@ -34,12 +35,12 @@ import java.lang.annotation.Target;
 public @interface RavenwoodIgnore {
     /**
      * One or more classes that aren't yet supported by Ravenwood, which is why this method is
-     * being replaced.
+     * being ignored.
      */
     Class<?>[] blockedBy() default {};
 
     /**
-     * General free-form description of why this method is being replaced.
+     * General free-form description of why this method is being ignored.
      */
     String reason() default "";
 
