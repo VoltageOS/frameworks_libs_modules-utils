@@ -22,8 +22,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * THIS ANNOTATION IS EXPERIMENTAL. REACH OUT TO g/ravenwood BEFORE USING IT, OR YOU HAVE ANY
- * QUESTIONS ABOUT IT.
+ * Denotes that the static initializer of the annotated class should be kept on Ravenwood.
+ * <p>
+ * When a class is annotated with {@link RavenwoodKeepPartialClass}, its static initializer
+ * is not kept by default.
+ * This annotation can be used to opt-in the static initializer of such a class.
+ * Note: without the static initializer, static fields of the class will not be initialized!
  *
  * @hide
  */

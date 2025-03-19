@@ -22,10 +22,45 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * THIS ANNOTATION IS EXPERIMENTAL. REACH OUT TO g/ravenwood BEFORE USING IT, OR YOU HAVE ANY
- * QUESTIONS ABOUT IT.
+ * Redirects the annotated method to the corresponding method in the class specified by
+ * {@link RavenwoodRedirectionClass}.
+ * <p>
+ * This annotation has to be used in conjunction with {@link RavenwoodRedirectionClass}.
+ * Each method annotated with {@link RavenwoodRedirect} will be redirected to the corresponding
+ * method in the class specified by the value of this annotation.
+ * <p>
+ * All redirection methods in the redirection class must be static.
+ * If the annotated method is static, the redirection method shall have the same signature.
+ * If the annotated method is non-static, the redirection method shall have an additional
+ * first parameter that is a reference to the {@code this} object.
  *
- * TODO: Javadoc
+ * Example:
+ * <pre>
+ *     @RavenwoodRedirectionClass("Foo_ravenwood")
+ *     public class Foo {
+ *         @RavenwoodRedirect
+ *         public void bar(int i, int j, int k) {
+ *             // ...
+ *         }
+ *
+ *         @RavenwoodRedirect
+ *         public static void baz(int i, int j, int k) {
+ *             // ...
+ *         }
+ *     }
+ *
+ *     public class Foo_ravenwod {
+ *         public static void bar(Foo foo, int i, int j, int k) {
+ *             // The "this" object of the original method is the "foo" parameter here.
+ *         }
+ *
+ *         public static void baz(int i, int j, int k) {
+ *             // ...
+ *         }
+ *     }
+ * </pre>
+ *
+ * @see RavenwoodRedirectionClass
  *
  * @hide
  */

@@ -22,10 +22,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * THIS ANNOTATION IS EXPERIMENTAL. REACH OUT TO g/ravenwood BEFORE USING IT, OR YOU HAVE ANY
- * QUESTIONS ABOUT IT.
+ * Set a "redirection class" for the annotated class.
+ * <p>
+ * This annotation has to be used in conjunction with {@link RavenwoodRedirect}.
+ * Each method annotated with {@link RavenwoodRedirect} will be redirected to the corresponding
+ * method in the class specified by the value of this annotation.
  *
- * TODO: Javadoc
+ * @see RavenwoodRedirect
  *
  * @hide
  */

@@ -22,8 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * THIS ANNOTATION IS EXPERIMENTAL. REACH OUT TO g/ravenwood BEFORE USING IT, OR YOU HAVE ANY
- * QUESTIONS ABOUT IT.
+ * Set a "class load hook" for the annotated class.
  *
  * Add this with a fully-specified method name (e.g. {@code "com.package.Class.methodName"})
  * of a callback to get a callback at the class load time.

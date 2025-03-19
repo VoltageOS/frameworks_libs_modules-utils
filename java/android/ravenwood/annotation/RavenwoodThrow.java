@@ -23,10 +23,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * THIS ANNOTATION IS EXPERIMENTAL. REACH OUT TO g/ravenwood BEFORE USING IT, OR YOU HAVE ANY
- * QUESTIONS ABOUT IT.
+ * Denotes that the annotated method is unsupported on Ravenwood, and calling it will throw
+ * a runtime exception.
+ * <p>
+ * Implementation included in the annotated method will be removed on Ravenwood, and calling it
+ * will throw a runtime exception with a message indicating that the method is unsupported
+ * on Ravenwood.
  *
- * TODO: Javadoc
  * TODO: Create "whole-class-throw"?
  *
  * @hide

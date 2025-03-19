@@ -25,10 +25,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * THIS ANNOTATION IS EXPERIMENTAL. REACH OUT TO g/ravenwood BEFORE USING IT, OR YOU HAVE ANY
- * QUESTIONS ABOUT IT.
+ * Denotes that the annotated target is unsupported on Ravenwood, and it will be completely removed.
+ * <p>
+ * The target element will actually be removed, so it can't be accessed or even mocked, which
+ * is not something normally needed.
+ * Consider using {@link RavenwoodThrow} or {@link RavenwoodIgnore} instead.
  *
- * TODO: Javadoc
+ * @see RavenwoodThrow
+ * @see RavenwoodIgnore
  *
  * @hide
  */
@@ -36,12 +40,13 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 public @interface RavenwoodRemove {
     /**
-     * One or more classes that aren't yet supported by Ravenwood, which is why this method throws.
+     * One or more classes that aren't yet supported by Ravenwood, which is why this target
+     * is removed.
      */
     Class<?>[] blockedBy() default {};
 
     /**
-     * General free-form description of why this method throws.
+     * General free-form description of why this target is removed.
      */
     String reason() default "";
 

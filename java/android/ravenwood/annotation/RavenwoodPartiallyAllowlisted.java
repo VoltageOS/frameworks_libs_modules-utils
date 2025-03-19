@@ -22,10 +22,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * THIS ANNOTATION IS EXPERIMENTAL. REACH OUT TO g/ravenwood BEFORE USING IT, OR YOU HAVE ANY
- * QUESTIONS ABOUT IT.
+ * Denotes that the annotated class is not officially supported on Ravenwood, however certain
+ * methods of the class are allowed to be used.
+ * <p>
+ * Opting-in additional methods of the class to be used on Ravenwood requires explicit approval
+ * from the Ravenwood team.
  *
- * TODO: Javadoc
+ * TODO: Add a link to the Ravenwood team's page once it's available.
  *
  * @hide
  */

@@ -22,10 +22,29 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * THIS ANNOTATION IS EXPERIMENTAL. REACH OUT TO g/ravenwood BEFORE USING IT, OR YOU HAVE ANY
- * QUESTIONS ABOUT IT.
+ * Denotes that the annotated method is supported on Ravenwood, however the implementation
+ * will be replaced with the method suffixed with "$ravenwood".
+ * <p>
+ * Example:
+ * <pre>
+ *     @RavenwoodKeepPartialClass
+ *     public class Foo {
+ *         @RavenwoodReplace
+ *         public void doComplex() {
+ *             // This method implementation runs as-is on devices, but the
+ *             // implementation is replaced/substituted by the
+ *             // doComplex$ravenwood() method implementation under Ravenwood
+ *         }
  *
- * TODO: Javadoc
+ *         private void doComplex$ravenwood() {
+ *             // This method implementation only runs under Ravenwood.
+ *             // The visibility of this replacement method does not need to match
+ *             // the original method, so it's recommended to always use
+ *             // private methods so that these methods won't be accidentally used
+ *             // by unexpected users.
+ *         }
+ *     }
+ * </pre>
  *
  * @hide
  */

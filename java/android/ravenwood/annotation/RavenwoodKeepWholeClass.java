@@ -25,11 +25,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * THIS ANNOTATION IS EXPERIMENTAL. REACH OUT TO g/ravenwood BEFORE USING IT, OR YOU HAVE ANY
- * QUESTIONS ABOUT IT.
- *
- * TODO: Javadoc
- * TODO: Create "whole-class-throw"?
+ * Denotes that the annotated class is fully supported on Ravenwood.
+ * <p>
+ * All methods in this class are treated as if they were all annotated with {@link RavenwoodKeep}.
+ * For methods that need to be replaced or redirected, explicitly annotate them with
+ * {@link RavenwoodReplace} or {@link RavenwoodRedirect} respectively.
+ * To opt-out a method from Ravenwood, annotate it explicitly with {@link RavenwoodThrow}.
  *
  * @hide
  */
