@@ -67,9 +67,6 @@ public @interface CachedProperty {
 
   /**
    * Specify modifiers for generating cached property. By default it will be static property.
-   * This modifiers will apply when flag is on or does not exist.
-   * TODO: Add support for flag modifiers. b/361731022
    */
-  CacheModifier[] modsFlagOnOrNone() default { CacheModifier.STATIC };
+  CacheModifier[] mods() default { CacheModifier.STATIC };
 }
-

@@ -20,7 +20,7 @@ public enum CacheModifier {
     /**
      * This modifier is used to indicate that the annotated method should be cached in as a static
      * field. When STATIC is not present in
-     * {@link com.android.internal.annotations.CachedProperty#modsFlagOnOrNone} then generated cache
+     * {@link com.android.internal.annotations.CachedProperty#mods} then generated cache
      * field will not be static.
      */
     STATIC,
